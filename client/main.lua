@@ -122,6 +122,15 @@ end)
 
 RegisterNetEvent("dd-atmrobbery:client:ropeUsed")
 AddEventHandler("dd-atmrobbery:client:ropeUsed", function()
+
+    local ped = PlayerPedId()
+    local pos = GetEntityCoords(ped)
+    local vehicle = QBCore.Functions.GetClosestVehicle(pos)
+    local coords = GetEntityCoords(ped)
+    local vehicle = GetClosestVehicle(coords.x, coords.y, coords.z, 5.0, 0, 71)
+
+         if DoesEntityExist(vehicle) then 
+        
     if CurrentCops >= 2 then
         local PlayerPed = PlayerPedId()
         Vehicle = QBCore.Functions.GetClosestVehicle()
@@ -154,6 +163,9 @@ AddEventHandler("dd-atmrobbery:client:ropeUsed", function()
     else
         QBCore.Functions.Notify("No police are in city!", "error")
     end
+        else
+            QBCore.Functions.Notify('no vehicles nearby', 'error', 1000) 
+        end
 end)
 
 RegisterNetEvent("dd-atmrobbery:client:crackATM")
