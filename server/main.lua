@@ -43,3 +43,9 @@ QBCore.Functions.CreateUseableItem("rope", function(source, item)
     local src = source
     TriggerClientEvent("dd-atmrobbery:client:ropeUsed", src)
 end)
+
+RegisterNetEvent('dd-atmrobbery:removeRope', function()
+	local Player = QBCore.Functions.GetPlayer(source)
+	if not Player then return end
+	Player.Functions.RemoveItem('rope', 1)
+end)
