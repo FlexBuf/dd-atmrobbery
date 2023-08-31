@@ -168,6 +168,7 @@ AddEventHandler("dd-atmrobbery:client:ropeUsed", function()
                 }, {}, {}, function()
                     ClearPedTasks(PlayerPed)
                     TriggerServerEvent("dd-atmrobbery:server:spawnRope")
+                    TriggerServerEvent('dd-atmrobbery:removeRope')
                     RobberyStarted = true
                     local NetworkVehicle = VehToNet(Vehicle)
                     local NetworkPlayerPed = PedToNet(PlayerPed)
